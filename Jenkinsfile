@@ -2,7 +2,7 @@ pipeline {
     environment {
         APP_NAME = "demo-apps"
         DOCKER_USER = "aey16"
-        DOCKER_PASS = 'docker-cred'
+        DOCKER_PASS = credentials('docker-cred')
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${env.GIT_COMMIT.substring(0,7)}"
         REPO_CODE = "https://github.com/gunturginting/demo-apps.git"
