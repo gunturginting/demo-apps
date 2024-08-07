@@ -1,5 +1,12 @@
 pipeline {
-    environment {
+    agent any
+    
+    tools {
+        maven 'maven3'
+        jdk 'jdk17'
+    }
+
+    environment  {
         APP_NAME = "demo-apps"
         DOCKER_USER = "aey16"
         DOCKER_PASS = 'docker-cred'
@@ -9,13 +16,6 @@ pipeline {
         REPO_SECRET = "github"
         IMAGE_REPO = "aey16/${APP_NAME}"
         NAMESPACE = "app"
-    }
-    
-    agent any
-    
-    tools {
-        maven 'maven3'
-        jdk 'jdk17'
     }
     
     stages {
